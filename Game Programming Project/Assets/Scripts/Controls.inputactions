@@ -1,0 +1,33 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "ClickAndDrag",
+            "id": "afb1f981-5d64-411e-b5ed-9d86ea663e17",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "37e80f50-b3f6-48c6-bc55-2388224c9467",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4d9dd001-b13b-493d-a969-8a7cf2712b71",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
