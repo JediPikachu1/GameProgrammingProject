@@ -597,7 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCast: 0
   Hand: []
-  Player: {fileID: 0}
+  Player: {fileID: 282233923}
   cardEnergy: 0
 --- !u!4 &560015652
 Transform:
@@ -943,9 +943,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d006b6044d4ab49488afd8aa5f750e05, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d11d0a3a3c9da85449c2bc2d4cd94976, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.51
   m_Pitch: 1
   Loop: 0
   Mute: 0
