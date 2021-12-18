@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -662, y: -438}
+  m_AnchoredPosition: {x: -598, y: -434}
   m_SizeDelta: {x: 205.21075, y: 205.21075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282233923
@@ -842,7 +842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 790.9, y: -327.23}
+  m_AnchoredPosition: {x: 838, y: -452.4}
   m_SizeDelta: {x: 154.26172, y: 50.02925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772373049
@@ -1085,7 +1085,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1022170687
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1436,7 +1436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 292.37, y: -281.7}
+  m_AnchoredPosition: {x: 362, y: -281.7}
   m_SizeDelta: {x: 164.34479, y: 41.026474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433205413
@@ -1963,6 +1963,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Deck: []
+  isCast: 0
+  cardEnergy: 0
+  player: {fileID: 282233923}
 --- !u!4 &2093214358
 Transform:
   m_ObjectHideFlags: 0

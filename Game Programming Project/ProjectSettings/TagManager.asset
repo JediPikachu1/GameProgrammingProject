@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Card
+  - Longsword
+  - Defend
+  - Greatsword
   layers:
   - Default
   - TransparentFX
