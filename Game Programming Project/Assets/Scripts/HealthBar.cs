@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeatlhBar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
-    public Slider healthBar;
     public PlayerScript health;
+    public int currentHealth;
+
+    public Slider slider;
     void Start()
     {
-        
+        currentHealth = health.currentHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
+        currentHealth = health.currentHealth;
     }
 }

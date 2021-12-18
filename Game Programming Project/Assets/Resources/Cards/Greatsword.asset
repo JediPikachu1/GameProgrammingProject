@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83f06489197b6f64a865cfd6f0f7392d, type: 3}
-  m_Name: New Card
+  m_Name: Greatsword
   m_EditorClassIdentifier: 
-  name: Strike
-  description: You strike with your sword
-  artwork: {fileID: 21300000, guid: f4001bfabd0a3bf488b898ef6ef1cfe9, type: 3}
-  energyCost: 1
-  damage: 5
+  name: Greatsword
+  description: A larger sword
+  artwork: {fileID: 21300000, guid: d5511ddb9df765247b61efc3b253ea59, type: 3}
+  energyCost: 2
+  damage: 35
   block: 0

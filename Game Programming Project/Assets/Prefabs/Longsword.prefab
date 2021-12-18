@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3918990686699726179}
   - component: {fileID: 2044631563959272690}
   m_Layer: 5
-  m_Name: Card
-  m_TagString: Untagged
+  m_Name: Longsword
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,10 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55faeaf8aa29464db595885f02c9511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 11400000, guid: 594f38c64b9bb9549a91138dabee4a7c, type: 2}
   nameText: {fileID: 3918990688161626040}
   descriptionText: {fileID: 3918990688231803013}
-  art: {fileID: 0}
+  art: {fileID: 658273081099090214}
   energyText: {fileID: 3918990687425689702}
   damageText: {fileID: 0}
   blockText: {fileID: 0}

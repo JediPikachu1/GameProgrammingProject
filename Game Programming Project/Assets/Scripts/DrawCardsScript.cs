@@ -6,25 +6,27 @@ using UnityEngine.UI;
 public class DrawCardsScript : MonoBehaviour
 {
     
-    public GameObject TestCard;
+    public GameObject[] deckCards;
     public GameObject Hand;
+    
+    [SerializeField] private GameObject[] HandAccess;
+    public GameObject[] Deck;
 
     private Card forTest;
     public CardDisplay forTestDisplay;
 
-    int maxHandsize = 7;
+    public GameObject test;
+
+    int maxHandsize = 5;
 
     void Start()
     {
-        /*
-        for(int i = 0; i < 5; i++)
-        {
-            GameObject playerCard = Instantiate(TestCard, new Vector3(0,0,0), Quaternion.identity);
-            playerCard.transform.SetParent(Hand.transform, false);
-        }
-        */
-        forTest = Resources.Load("Cards/forTest") as Card;
-        Card playerobject = Instantiate(forTest);
+        DrawCardtoHandsize();
+        
+        
+        
+        //forTest = Resources.Load("Cards/forTest") as Card;
+        
         
     }
 
@@ -32,5 +34,28 @@ public class DrawCardsScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void DeckInstance()
+    {
+        Deck = new GameObject[8];
+        for (int i = 0; i < 3; i++)
+            Deck[i] = deckCards[0];
+
+        Deck[4] = deckCards[1];
+
+        for (int i = 5; i < 7; i++)
+            Deck[i] = deckCards[2];
+        
+    }
+    void DrawCardtoHandsize()
+    {
+        for(int i = 0; i < maxHandsize; i++)
+        {
+            int cardIndex = Random.Range(0, Deck.Length - 1);
+            GameObject playerCard = Instantiate(Deck[cardIndex], new Vector3(0,0,0), Quaternion.identity);
+            HandAccess[i] = Deck[cardIndex];
+            playerCard.transform.SetParent(Hand.transform, false);
+        }
     }
 }

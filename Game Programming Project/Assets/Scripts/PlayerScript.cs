@@ -12,13 +12,24 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maximumHealth;
-        playerEnergy = 3;
+        ResetGame();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+
+    void ResetGame()
+    {
+        currentHealth = maximumHealth;
+        playerEnergy = 3;
+    }
+
+    void StartTurn()
+    {
+        playerEnergy = 3;
     }
 }
