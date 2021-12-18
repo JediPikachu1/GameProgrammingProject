@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyHealthAi : MonoBehaviour
 {
-    [SerializeField] private int enemyMaxHealth;
-    [SerializeField] private int enemyCurrentHealth;
+    public int enemyMaxHealth;
+    public int enemyCurrentHealth;
 
     public Slider enemySlider;
 
@@ -15,6 +15,9 @@ public class EnemyHealthAi : MonoBehaviour
     public Text actionDisplay;
 
     public int enemyAct;
+    public int enemyBlock;
+
+    PlayerScript player;
 
 
     void Start()
@@ -77,17 +80,38 @@ public class EnemyHealthAi : MonoBehaviour
     //These functions to be used after the End Turn button has been pressed
     public void EnemyGainBlock()
     {
-
+        int gainBlock = Random.Range(13, 26);
+        enemyBlock += gainBlock;
     }
 
     public void EnemyAttack()
     {
+        int attackDamage = Random.Range(20, 29);
+        player.PlayerTakeDamage(attackDamage);
+
 
     }
 
     public void EnemyDebuff()
     {
 
+    }
+
+    public void EnemyTakeDamage(int damage)
+    {
+        int rolloverDamage;
+        if (enemyBlock > 0)
+        {
+            if (enemyBlock > damage)
+            {
+                rolloverDamage = damage - enemyBlock;
+                enemyBlock -= damage;
+                enemyCurrentHealth -= rolloverDamage;
+                enemyBlock = 0;
+            }
+            
+            enemyCurrentHealth -= damage;
+        }
     }
 
 

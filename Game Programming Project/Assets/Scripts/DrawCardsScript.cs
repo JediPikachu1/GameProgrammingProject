@@ -22,6 +22,7 @@ public class DrawCardsScript : MonoBehaviour
     
 
     public PlayerScript player;
+    public EnemyHealthAi enemy;
 
     void Awake()
     {
@@ -52,6 +53,15 @@ public class DrawCardsScript : MonoBehaviour
             {
                 isCast = true;
                 player.playerEnergy -= cardEnergy;
+
+                if (cardDamage > 0)
+                {
+                    enemy.EnemyTakeDamage(cardDamage);
+                }
+                else if (cardBlock > 0)
+                {
+                    player.playerBlock += cardBlock;
+                }
             }
         }
 
@@ -70,6 +80,15 @@ public class DrawCardsScript : MonoBehaviour
             {
                 isCast = true;
                 player.playerEnergy -= cardEnergy;
+
+                if (cardDamage > 0)
+                {
+                    enemy.EnemyTakeDamage(cardDamage);
+                }
+                else if (cardBlock > 0)
+                {
+                    player.playerBlock += cardBlock;
+                }
             }
         }
 
@@ -87,6 +106,15 @@ public class DrawCardsScript : MonoBehaviour
             {
                 isCast = true;
                 player.playerEnergy -= cardEnergy;
+
+                if (cardDamage > 0)
+                {
+                    enemy.EnemyTakeDamage(cardDamage);
+                }
+                else if (cardBlock > 0)
+                {
+                    player.playerBlock += cardBlock;
+                }
             }
         }
 
@@ -104,6 +132,15 @@ public class DrawCardsScript : MonoBehaviour
             {
                 isCast = true;
                 player.playerEnergy -= cardEnergy;
+
+                if (cardDamage > 0)
+                {
+                    enemy.EnemyTakeDamage(cardDamage);
+                }
+                else if (cardBlock > 0)
+                {
+                    player.playerBlock += cardBlock;
+                }
             }
         }
 
@@ -121,6 +158,15 @@ public class DrawCardsScript : MonoBehaviour
             {
                 isCast = true;
                 player.playerEnergy -= cardEnergy;
+
+                if (cardDamage > 0)
+                {
+                    enemy.EnemyTakeDamage(cardDamage);
+                }
+                else if (cardBlock > 0)
+                {
+                    player.playerBlock += cardBlock;
+                }
             }
         }
     }

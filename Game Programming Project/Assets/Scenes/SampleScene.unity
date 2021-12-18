@@ -322,6 +322,7 @@ MonoBehaviour:
   currentHealth: 0
   maximumHealth: 100
   playerEnergy: 0
+  playerBlock: 0
   currentEnergy: {fileID: 1022170686}
 --- !u!212 &282233924
 SpriteRenderer:
@@ -2465,7 +2466,7 @@ GameObject:
   - component: {fileID: 2093214358}
   - component: {fileID: 2093214357}
   m_Layer: 0
-  m_Name: CardDrawEngine
+  m_Name: CardBehaviorEngine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2500,6 +2501,7 @@ MonoBehaviour:
   cardDamage: 0
   cardBlock: 0
   player: {fileID: 282233923}
+  enemy: {fileID: 322566193}
 --- !u!4 &2093214358
 Transform:
   m_ObjectHideFlags: 0
