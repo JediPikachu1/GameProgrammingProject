@@ -16,7 +16,10 @@ public class DrawCardsScript : MonoBehaviour
 
     public bool isCast;
 
-    public int cardEnergy;
+    [SerializeField] private int cardEnergy;
+    [SerializeField] private int cardDamage;
+    [SerializeField] private int cardBlock;
+    
 
     public PlayerScript player;
 
@@ -38,6 +41,8 @@ public class DrawCardsScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             cardEnergy = HandAccess[0].GetComponent<CardDisplay>().card.energyCost;
+            cardDamage = HandAccess[0].GetComponent<CardDisplay>().card.damage;
+            cardBlock = HandAccess[0].GetComponent<CardDisplay>().card.block;
 
             if(cardEnergy > player.playerEnergy)
             {
@@ -53,6 +58,9 @@ public class DrawCardsScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             cardEnergy = HandAccess[1].GetComponent<CardDisplay>().card.energyCost;
+            cardDamage = HandAccess[1].GetComponent<CardDisplay>().card.damage;
+            cardBlock = HandAccess[1].GetComponent<CardDisplay>().card.block;
+
 
             if(cardEnergy > player.playerEnergy)
             {
@@ -68,6 +76,8 @@ public class DrawCardsScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
             cardEnergy = HandAccess[2].GetComponent<CardDisplay>().card.energyCost;
+            cardDamage = HandAccess[2].GetComponent<CardDisplay>().card.damage;
+            cardBlock = HandAccess[2].GetComponent<CardDisplay>().card.block;
 
             if(cardEnergy > player.playerEnergy)
             {
@@ -83,6 +93,8 @@ public class DrawCardsScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
             cardEnergy = HandAccess[3].GetComponent<CardDisplay>().card.energyCost;
+            cardDamage = HandAccess[3].GetComponent<CardDisplay>().card.damage;
+            cardBlock = HandAccess[3].GetComponent<CardDisplay>().card.block;
 
             if(cardEnergy > player.playerEnergy)
             {
@@ -98,6 +110,8 @@ public class DrawCardsScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
             cardEnergy = HandAccess[4].GetComponent<CardDisplay>().card.energyCost;
+            cardDamage = HandAccess[4].GetComponent<CardDisplay>().card.damage;
+            cardBlock = HandAccess[4].GetComponent<CardDisplay>().card.block;
 
             if(cardEnergy > player.playerEnergy)
             {

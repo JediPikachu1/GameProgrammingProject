@@ -6,17 +6,25 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public PlayerScript health;
-    public int currentHealth;
 
     public Slider slider;
     void Start()
     {
-        currentHealth = health.currentHealth;
+        slider.maxValue = health.maximumHealth;
+        slider.minValue = 0;
+        slider.value = health.maximumHealth;
+        slider.wholeNumbers = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentHealth = health.currentHealth;
+        
+    }
+
+    void UpdateHP()
+    {
+        slider.value = health.currentHealth;
     }
 }
