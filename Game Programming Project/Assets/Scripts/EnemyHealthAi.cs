@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHeatlhAi : MonoBehaviour
+public class EnemyHealthAi : MonoBehaviour
 {
     [SerializeField] private int enemyMaxHealth;
     [SerializeField] private int enemyCurrentHealth;
@@ -11,6 +11,10 @@ public class EnemyHeatlhAi : MonoBehaviour
     public Slider enemySlider;
 
     public Text displayHealthNumber;
+
+    public Text actionDisplay;
+
+    public int enemyAct;
 
 
     void Start()
@@ -48,35 +52,40 @@ public class EnemyHeatlhAi : MonoBehaviour
 
     #region Enemy AI functions
 
-    public void EnemyAction()
+    void EnemyActionDetermineAndDisplay()
     {
         //This section tells what the enemy will do with certain chances
         float randomAction = Random.value;
         if (randomAction <= 0.3)
         {
-            EnemyGainBlock();
+            enemyAct = 1;
+            actionDisplay.text = "The enemy plans to Block";
         }
         if (0.3 < randomAction && randomAction <= 0.9)
         {
-            EnemyAttack();
+            enemyAct = 2;
+            actionDisplay.text = "The enemy plans to Attack";
         }
         if (0.9 < randomAction && randomAction <= 1.0)
         {
-            EnemyDebuff();
+            enemyAct = 3;
+            actionDisplay.text = "The enemy plans to use a Debuff";
         }
     }
 
-    void EnemyGainBlock()
+
+    //These functions to be used after the End Turn button has been pressed
+    public void EnemyGainBlock()
     {
 
     }
 
-    void EnemyAttack()
+    public void EnemyAttack()
     {
 
     }
 
-    void EnemyDebuff()
+    public void EnemyDebuff()
     {
 
     }

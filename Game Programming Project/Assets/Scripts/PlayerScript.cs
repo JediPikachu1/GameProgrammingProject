@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
         playerEnergy = 3;
     }
 
-    void StartTurn()
+    public void StartTurn()
     {
         playerEnergy = 3;
     }

@@ -8,6 +8,7 @@ TagManager:
   - Longsword
   - Defend
   - Greatsword
+  - Enemy
   layers:
   - Default
   - TransparentFX

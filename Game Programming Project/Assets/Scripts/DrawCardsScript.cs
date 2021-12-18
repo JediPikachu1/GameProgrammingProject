@@ -137,7 +137,7 @@ public class DrawCardsScript : MonoBehaviour
             Deck[i] = deckCards[2];
         
     }
-    void DrawCardtoHandsize()
+    public void DrawCardtoHandsize()
     {
         for(int i = 0; i < maxHandsize; i++)
         {
