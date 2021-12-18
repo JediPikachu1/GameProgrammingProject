@@ -25,7 +25,7 @@ public class CardDisplay : MonoBehaviour
         art.sprite = card.artwork;
 
         energyText.text = card.energyCost.ToString();
-        Debug.Log(energyText.text);
+        //Debug.Log(energyText.text);
         //damageText.text = card.damage.ToString();
         //blockText.text = card.block.ToString();
     }

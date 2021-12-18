@@ -14,6 +14,12 @@ public class DrawCardsScript : MonoBehaviour
 
     int maxHandsize = 5;
 
+    public bool isCast;
+
+    public int cardEnergy;
+
+    public PlayerScript player;
+
     void Awake()
     {
         DeckInstantiate();
@@ -29,7 +35,80 @@ public class DrawCardsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            cardEnergy = HandAccess[0].GetComponent<CardDisplay>().card.energyCost;
+
+            if(cardEnergy > player.playerEnergy)
+            {
+                isCast = false;
+            }
+            else
+            {
+                isCast = true;
+                player.playerEnergy -= cardEnergy;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            cardEnergy = HandAccess[1].GetComponent<CardDisplay>().card.energyCost;
+
+            if(cardEnergy > player.playerEnergy)
+            {
+                isCast = false;
+            }
+            else
+            {
+                isCast = true;
+                player.playerEnergy -= cardEnergy;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            cardEnergy = HandAccess[2].GetComponent<CardDisplay>().card.energyCost;
+
+            if(cardEnergy > player.playerEnergy)
+            {
+                isCast = false;
+            }
+            else
+            {
+                isCast = true;
+                player.playerEnergy -= cardEnergy;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            cardEnergy = HandAccess[3].GetComponent<CardDisplay>().card.energyCost;
+
+            if(cardEnergy > player.playerEnergy)
+            {
+                isCast = false;
+            }
+            else
+            {
+                isCast = true;
+                player.playerEnergy -= cardEnergy;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            cardEnergy = HandAccess[4].GetComponent<CardDisplay>().card.energyCost;
+
+            if(cardEnergy > player.playerEnergy)
+            {
+                isCast = false;
+            }
+            else
+            {
+                isCast = true;
+                player.playerEnergy -= cardEnergy;
+            }
+        }
     }
 
     void DeckInstantiate()

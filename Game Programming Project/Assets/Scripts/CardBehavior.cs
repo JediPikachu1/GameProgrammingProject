@@ -21,7 +21,8 @@ public class CardBehavior : MonoBehaviour
     void Update()
     {
         Hand = GameObject.FindGameObjectsWithTag("Card");
-        if(Input.GetKey(KeyCode.Alpha1))
+        /*
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             if(cardEnergy < Player.playerEnergy)
             {
@@ -31,7 +32,9 @@ public class CardBehavior : MonoBehaviour
             {
                 isCast = true;
                 Player.playerEnergy -= cardEnergy;
+                Debug.Log(Player.playerEnergy);
             }
         }
+        */
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card : ScriptableObject
 {
-    // Start is called before the first frame update
+    
     public new string name;
     public string description;
 
@@ -16,5 +16,5 @@ public class Card : ScriptableObject
 
     public int block;
 
-    // Update is called once per frame
+    
 }
