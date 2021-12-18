@@ -12,21 +12,17 @@ public class DrawCardsScript : MonoBehaviour
     [SerializeField] private GameObject[] HandAccess;
     public GameObject[] Deck;
 
-    private Card forTest;
-    public CardDisplay forTestDisplay;
-
-    public GameObject test;
-
     int maxHandsize = 5;
+
+    void Awake()
+    {
+        DeckInstantiate();
+    }
 
     void Start()
     {
+        
         DrawCardtoHandsize();
-        
-        
-        
-        //forTest = Resources.Load("Cards/forTest") as Card;
-        
         
     }
 
@@ -36,15 +32,15 @@ public class DrawCardsScript : MonoBehaviour
         
     }
 
-    void DeckInstance()
+    void DeckInstantiate()
     {
         Deck = new GameObject[8];
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
             Deck[i] = deckCards[0];
 
         Deck[4] = deckCards[1];
 
-        for (int i = 5; i < 7; i++)
+        for (int i = 5; i < 8; i++)
             Deck[i] = deckCards[2];
         
     }
