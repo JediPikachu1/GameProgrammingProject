@@ -13,6 +13,7 @@ public class EnemyHealthAi : MonoBehaviour
     public Text displayHealthNumber;
 
     public Text actionDisplay;
+    public Text enemyBlockDisplay;
 
     public int enemyAct;
     public int enemyBlock;
@@ -23,7 +24,7 @@ public class EnemyHealthAi : MonoBehaviour
     void Start()
     {
         EnemyReset();
-        
+        EnemyActionDetermineAndDisplay();
     }
 
     
@@ -42,6 +43,7 @@ public class EnemyHealthAi : MonoBehaviour
         enemySlider.wholeNumbers = true;
         enemySlider.value = enemyCurrentHealth;
         displayHealthNumber.text = enemySlider.value.ToString() + "/" + enemyMaxHealth.ToString();
+        EnemyBlockUpdate();
     }
 
     void UpdateSlider()
@@ -94,7 +96,8 @@ public class EnemyHealthAi : MonoBehaviour
 
     public void EnemyDebuff()
     {
-
+        player.strength -= 1;
+        player.StrengthText();
     }
 
     public void EnemyTakeDamage(int damage)
@@ -108,10 +111,16 @@ public class EnemyHealthAi : MonoBehaviour
                 enemyBlock -= damage;
                 enemyCurrentHealth -= rolloverDamage;
                 enemyBlock = 0;
+                EnemyBlockUpdate();
             }
-            
+
             enemyCurrentHealth -= damage;
         }
+    }
+
+    public void EnemyBlockUpdate()
+    {
+        enemyBlockDisplay.text = enemyBlock.ToString();
     }
 
 
