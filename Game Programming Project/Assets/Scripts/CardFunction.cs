@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DrawCardsScript : MonoBehaviour
+public class CardFunction : MonoBehaviour
 {
     
     public GameObject[] deckCards;
@@ -11,6 +11,9 @@ public class DrawCardsScript : MonoBehaviour
     
     [SerializeField] private GameObject[] HandAccess;
     public GameObject[] Deck;
+    public GameObject[] Discard;
+
+    public int discardCount;
 
     int maxHandsize = 5;
 
@@ -62,6 +65,9 @@ public class DrawCardsScript : MonoBehaviour
                 {
                     player.playerBlock += cardBlock;
                 }
+
+                Discard[discardCount] = HandAccess[0];
+                discardCount++;
             }
         }
 
@@ -89,6 +95,8 @@ public class DrawCardsScript : MonoBehaviour
                 {
                     player.playerBlock += cardBlock;
                 }
+                Discard[discardCount] = HandAccess[1];
+                discardCount++;
             }
         }
 
@@ -115,6 +123,8 @@ public class DrawCardsScript : MonoBehaviour
                 {
                     player.playerBlock += cardBlock;
                 }
+                Discard[discardCount] = HandAccess[2];
+                discardCount++;
             }
         }
 
@@ -141,6 +151,8 @@ public class DrawCardsScript : MonoBehaviour
                 {
                     player.playerBlock += cardBlock;
                 }
+                Discard[discardCount] = HandAccess[3];
+                discardCount++;
             }
         }
 
@@ -167,6 +179,8 @@ public class DrawCardsScript : MonoBehaviour
                 {
                     player.playerBlock += cardBlock;
                 }
+                Discard[discardCount] = HandAccess[4];
+                discardCount++;
             }
         }
     }
@@ -181,6 +195,8 @@ public class DrawCardsScript : MonoBehaviour
 
         for (int i = 5; i < 8; i++)
             Deck[i] = deckCards[2];
+
+        discardCount = 0;
         
     }
     public void DrawCardtoHandsize()
