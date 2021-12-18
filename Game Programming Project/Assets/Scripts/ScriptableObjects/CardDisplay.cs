@@ -20,7 +20,15 @@ public class CardDisplay : MonoBehaviour
     void Start()
     {
         nameText.text = card.name;
-        descriptionText.text = card.description;
+        if (card.damage > 0)
+        {
+            descriptionText.text = "You deal: " + card.damage.ToString() + " slashing damage";
+        }
+        else if (card.block > 0)
+        {
+            descriptionText.text = "You gain: " + card.block.ToString() + " block";
+        }
+        
 
         art.sprite = card.artwork;
 

@@ -8,12 +8,12 @@ public class HealthBar : MonoBehaviour
     public PlayerScript health;
 
     public Slider slider;
+
+    public Text displayHealthNumber;
     void Start()
     {
-        slider.maxValue = health.maximumHealth;
-        slider.minValue = 0;
-        slider.value = health.maximumHealth;
-        slider.wholeNumbers = true;
+        ResetSlider();
+
         
     }
 
@@ -26,5 +26,15 @@ public class HealthBar : MonoBehaviour
     void UpdateHP()
     {
         slider.value = health.currentHealth;
+        displayHealthNumber.text = slider.value.ToString() + "/" + health.maximumHealth.ToString();
+    }
+
+    void ResetSlider()
+    {
+        slider.maxValue = health.maximumHealth;
+        slider.minValue = 0;
+        slider.value = health.maximumHealth;
+        slider.wholeNumbers = true;
+        displayHealthNumber.text = slider.value.ToString() + "/" + health.maximumHealth.ToString();
     }
 }
