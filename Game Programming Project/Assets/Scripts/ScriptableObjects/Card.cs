@@ -17,5 +17,7 @@ public class Card : ScriptableObject
     public int block;
     public int strength;
 
+    public int ArmorBreak;
+
     
 }

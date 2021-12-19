@@ -76,7 +76,7 @@ public class EnemyHealthAi : MonoBehaviour
     //These functions to be used after the End Turn button has been pressed
     public void EnemyGainBlock()
     {
-        int gainBlock = Random.Range(13, 26);
+        int gainBlock = Random.Range(18, 32);
         enemyBlock += gainBlock;
         EnemyBlockUpdate();
     }
@@ -84,7 +84,7 @@ public class EnemyHealthAi : MonoBehaviour
     public void EnemyAttack()
     {
         
-        int attackDamage = Random.Range(20, 29);
+        int attackDamage = Random.Range(25, 36);
         player.PlayerTakeDamage(attackDamage);
 
     }
