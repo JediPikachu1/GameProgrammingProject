@@ -69,7 +69,7 @@ public class CardFunction : MonoBehaviour
 
                     if (cardDamage > 0)
                     {
-                        enemy.EnemyTakeDamage(cardDamage);
+                        enemy.EnemyTakeDamage(cardDamage + player.strength);
                     }
                     else if (cardBlock > 0)
                     {
@@ -105,7 +105,7 @@ public class CardFunction : MonoBehaviour
 
                     if (cardDamage > 0)
                     {
-                        enemy.EnemyTakeDamage(cardDamage);
+                        enemy.EnemyTakeDamage(cardDamage + player.strength);
                     }
                     else if (cardBlock > 0)
                     {
@@ -140,7 +140,7 @@ public class CardFunction : MonoBehaviour
 
                     if (cardDamage > 0)
                     {
-                        enemy.EnemyTakeDamage(cardDamage);
+                        enemy.EnemyTakeDamage(cardDamage + player.strength);
                     }
                     else if (cardBlock > 0)
                     {
@@ -175,7 +175,7 @@ public class CardFunction : MonoBehaviour
 
                     if (cardDamage > 0)
                     {
-                        enemy.EnemyTakeDamage(cardDamage);
+                        enemy.EnemyTakeDamage(cardDamage + player.strength);
                     }
                     else if (cardBlock > 0)
                     {
@@ -210,7 +210,7 @@ public class CardFunction : MonoBehaviour
 
                     if (cardDamage > 0)
                     {
-                        enemy.EnemyTakeDamage(cardDamage);
+                        enemy.EnemyTakeDamage(cardDamage + player.strength);
                     }
                     else if (cardBlock > 0)
                     {
