@@ -18,7 +18,7 @@ public class EnemyHealthAi : MonoBehaviour
     public int enemyAct;
     public int enemyBlock;
 
-    PlayerScript player;
+    public PlayerScript player;
 
 
     void Start()

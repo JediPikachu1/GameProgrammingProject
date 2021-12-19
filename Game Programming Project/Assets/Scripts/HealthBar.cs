@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
         
     }
 
-    void UpdateHP()
+    public void UpdateHP()
     {
         slider.value = health.currentHealth;
         displayHealthNumber.text = slider.value.ToString() + "/" + health.maximumHealth.ToString();

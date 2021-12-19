@@ -27,6 +27,8 @@ public class CardFunction : MonoBehaviour
     [SerializeField] private int cardDamage;
     [SerializeField] private int cardBlock;
 
+    public ScriptEndTurn end;
+
     public PlayerScript player;
     public EnemyHealthAi enemy;
 
@@ -221,6 +223,11 @@ public class CardFunction : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            end.EndTurn();
+        }
     }
 
     public void isCast()
@@ -262,12 +269,36 @@ public class CardFunction : MonoBehaviour
     {
         for(int i = 0; i < maxHandsize; i++)
         {
-            
-            
             playerCard = Instantiate(Deck[Deck.Length -1], new Vector3(0,0,0), Quaternion.identity);
             HandAccess[i] = Deck[Deck.Length - 1];
             playerCard.transform.SetParent(Hand.transform, false);
             System.Array.Resize(ref Deck, Deck.Length -1);
         }
+    }
+
+    public void EndTurnDiscard()
+    {
+        for (int i = 0; i < maxHandsize; i++)
+        {
+            if (Hand.transform.GetChild(i).gameObject.activeSelf)
+            {
+                Hand.transform.GetChild(i).gameObject.SetActive(false);
+                System.Array.Resize(ref Discard, ++discardCount);
+                Discard[discardCount - 1] = HandAccess[i];
+            }
+        }
+    }
+
+    public void DrawCardstoHandsize()
+    {
+        if (Deck.Length == 0)
+        {
+            Deck = new GameObject[10];
+            for (int i = 0; i < Discard.Length; ++i)
+            {
+                
+            }
+        }
+
     }
 }

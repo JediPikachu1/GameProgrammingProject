@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class ScriptEndTurn : MonoBehaviour
 {
 
-    EnemyHealthAi enemy;
-    PlayerScript player;
+    public EnemyHealthAi enemy;
+    public PlayerScript player;
+
+    public CardFunction cf;
+
     
 
     void Start()
@@ -15,8 +18,9 @@ public class ScriptEndTurn : MonoBehaviour
         
 
     }
-    public void onClick()
+    public void EndTurn()
     {
+        
         if (enemy.enemyAct == 1)
         {
             enemy.EnemyGainBlock();
@@ -30,6 +34,7 @@ public class ScriptEndTurn : MonoBehaviour
             enemy.EnemyDebuff();
         }
 
-        player.StartTurn();
+        //player.StartTurn();
+        cf.EndTurnDiscard();
     }
 }

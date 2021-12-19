@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
 
     public int strength;
 
+    public HealthBar bar;
+
     public CardFunction cardFunction;
     public Text currentStrength;
     public Text blockText;
@@ -59,6 +61,7 @@ public class PlayerScript : MonoBehaviour
     {
         playerEnergy = 3;
         cardFunction.isCast();
+        cardFunction.DrawCardstoHandsize();
     }
 
     public void PlayerTakeDamage(int damage)
@@ -76,6 +79,7 @@ public class PlayerScript : MonoBehaviour
             }
 
             currentHealth -= damage;
+            bar.UpdateHP();
         }
     }
 }
