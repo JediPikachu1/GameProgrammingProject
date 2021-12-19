@@ -27,6 +27,8 @@ public class CardFunction : MonoBehaviour
     [SerializeField] private int cardDamage;
     [SerializeField] private int cardBlock;
 
+    int discardCardNumber;
+
     public ScriptEndTurn end;
 
     public PlayerScript player;
@@ -73,8 +75,8 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
-                    System.Array.Resize(ref Discard, ++discardCount);
-                    Discard[discardCount - 1] = HandAccess[0];
+                    System.Array.Resize(ref Discard, discardCount++);
+                    Discard[discardCardNumber++] = HandAccess[0];
                     Transform remove = Hand.transform.GetChild(0);
                     remove.gameObject.SetActive(false);
                     remove = HandCounter.transform.GetChild(0);
@@ -109,8 +111,8 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
-                    System.Array.Resize(ref Discard, ++discardCount);
-                    Discard[discardCount - 1] = HandAccess[1];
+                    System.Array.Resize(ref Discard, discardCount++);
+                    Discard[discardCardNumber++] = HandAccess[1];
                     Transform remove = Hand.transform.GetChild(1);
                     remove.gameObject.SetActive(false);
                     remove = HandCounter.transform.GetChild(1);
@@ -144,8 +146,8 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
-                    System.Array.Resize(ref Discard, ++discardCount);
-                    Discard[discardCount - 1] = HandAccess[2];
+                    System.Array.Resize(ref Discard, discardCount++);
+                    Discard[discardCardNumber++] = HandAccess[2];
                     Transform remove = Hand.transform.GetChild(2);
                     remove.gameObject.SetActive(false);
                     remove = HandCounter.transform.GetChild(2);
@@ -179,8 +181,8 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
-                    System.Array.Resize(ref Discard, ++discardCount);
-                    Discard[discardCount - 1] = HandAccess[3];
+                    System.Array.Resize(ref Discard, discardCount++);
+                    Discard[discardCardNumber++] = HandAccess[3];
                     Transform remove = Hand.transform.GetChild(3);
                     remove.gameObject.SetActive(false);
                     remove = Hand.transform.GetChild(3);
@@ -214,8 +216,8 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
-                    System.Array.Resize(ref Discard, ++discardCount);
-                    Discard[discardCount - 1] = HandAccess[4];
+                    System.Array.Resize(ref Discard, discardCount++);
+                    Discard[discardCardNumber++] = HandAccess[4];
                     Transform remove = Hand.transform.GetChild(4);
                     remove.gameObject.SetActive(false);
                     remove = HandCounter.transform.GetChild(4);
@@ -263,7 +265,7 @@ public class CardFunction : MonoBehaviour
         
         discardCount = 1;
         Discard = new GameObject[discardCount];
-        
+        discardCardNumber = 0;
     }
     public void InitialDrawCardtoHandsize()
     {
@@ -296,7 +298,7 @@ public class CardFunction : MonoBehaviour
             Deck = new GameObject[10];
             for (int i = 0; i < Discard.Length; ++i)
             {
-                
+
             }
         }
 

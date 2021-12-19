@@ -69,7 +69,7 @@ public class PlayerScript : MonoBehaviour
         int rolloverDamage;
         if (playerBlock == 0)
         {
-            if (damage > 0)
+            if (playerBlock > 0)
             {
                 rolloverDamage = damage - playerBlock;
                 playerBlock -= damage;

@@ -89,9 +89,9 @@ public class EnemyHealthAi : MonoBehaviour
 
     public void EnemyAttack()
     {
+        
         int attackDamage = Random.Range(20, 29);
         player.PlayerTakeDamage(attackDamage);
-
 
     }
 
