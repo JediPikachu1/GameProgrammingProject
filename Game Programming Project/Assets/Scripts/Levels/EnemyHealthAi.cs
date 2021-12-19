@@ -91,7 +91,7 @@ public class EnemyHealthAi : MonoBehaviour
 
     public void EnemyDebuff()
     {
-        player.strength -= 3;
+        player.strength -= 5;
         player.StrengthText();
     }
 
