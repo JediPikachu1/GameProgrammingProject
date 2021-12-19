@@ -27,12 +27,6 @@ public class EnemyHealthAi : MonoBehaviour
         EnemyActionDetermineAndDisplay();
     }
 
-    
-    void Update()
-    {
-        
-    }
-
     #region EnemySlider functions
     void EnemyReset()
     {
@@ -57,7 +51,7 @@ public class EnemyHealthAi : MonoBehaviour
 
     #region Enemy AI functions
 
-    void EnemyActionDetermineAndDisplay()
+    public void EnemyActionDetermineAndDisplay()
     {
         //This section tells what the enemy will do with certain chances
         float randomAction = Random.value;
@@ -66,12 +60,12 @@ public class EnemyHealthAi : MonoBehaviour
             enemyAct = 1;
             actionDisplay.text = "The enemy plans to Block";
         }
-        if (0.3 < randomAction && randomAction <= 0.9)
+        if (0.3 < randomAction && randomAction <= 0.8)
         {
             enemyAct = 2;
             actionDisplay.text = "The enemy plans to Attack";
         }
-        if (0.9 < randomAction && randomAction <= 1.0)
+        if (0.8 < randomAction && randomAction <= 1.0)
         {
             enemyAct = 3;
             actionDisplay.text = "The enemy plans to use a Debuff";
@@ -97,7 +91,7 @@ public class EnemyHealthAi : MonoBehaviour
 
     public void EnemyDebuff()
     {
-        player.strength -= 1;
+        player.strength -= 3;
         player.StrengthText();
     }
 
@@ -106,18 +100,19 @@ public class EnemyHealthAi : MonoBehaviour
         int rolloverDamage;
         if (enemyBlock == 0)
         {
-            if (enemyBlock > 0)
-            {
-                rolloverDamage = damage - enemyBlock;
-                enemyBlock -= damage;
-                enemyCurrentHealth -= rolloverDamage;
-                enemyBlock = 0;
-                EnemyBlockUpdate();
-            }
+            
 
             enemyCurrentHealth -= damage;
             UpdateSlider();
             
+        }
+        else if (enemyBlock > 0)
+        {
+            rolloverDamage = damage - enemyBlock;
+            enemyBlock -= damage;
+            enemyCurrentHealth -= rolloverDamage;
+            enemyBlock = 0;
+            EnemyBlockUpdate();
         }
     }
 
@@ -125,6 +120,17 @@ public class EnemyHealthAi : MonoBehaviour
     {
         enemyBlockDisplay.text = enemyBlock.ToString();
     }
+
+    public void EnemyDeath()
+    {
+        if (enemyCurrentHealth <= 0)
+        {
+            player.onDeathImage.gameObject.SetActive(true);
+            player.gameOverText.text = "You win the battle!";
+        }
+    }
+
+    
 
 
     #endregion

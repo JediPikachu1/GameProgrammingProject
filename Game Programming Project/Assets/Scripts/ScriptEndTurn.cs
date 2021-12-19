@@ -11,13 +11,8 @@ public class ScriptEndTurn : MonoBehaviour
 
     public CardFunction cf;
 
-    
+    public HandCounter hc;
 
-    void Start()
-    {
-        
-
-    }
     public void EndTurn()
     {
         
@@ -34,7 +29,11 @@ public class ScriptEndTurn : MonoBehaviour
             enemy.EnemyDebuff();
         }
 
-        player.StartTurn();
         cf.EndTurnDiscard();
+        player.StartTurn();
+        hc.Restart();
+        enemy.EnemyActionDetermineAndDisplay();
+        player.PlayerDeath();
+        enemy.EnemyDeath();
     }
 }

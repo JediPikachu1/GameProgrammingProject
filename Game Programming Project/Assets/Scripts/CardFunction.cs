@@ -285,14 +285,14 @@ public class CardFunction : MonoBehaviour
             if (Hand.transform.GetChild(i).gameObject.activeSelf)
             {
                 Hand.transform.GetChild(i).gameObject.SetActive(false);
-                System.Array.Resize(ref Discard, ++discardCount);
-                Discard[discardCount - 1] = HandAccess[i];
+                System.Array.Resize(ref Discard, discardCount++);
+                Discard[discardCardNumber++] = HandAccess[i];
             }
         }
 
         for (int i = 0; i < maxHandsize; i++)
         {
-            Destroy(Hand.transform.GetChild(i));
+            Destroy(Hand.transform.GetChild(i).gameObject);
         }
     }
 
@@ -305,6 +305,10 @@ public class CardFunction : MonoBehaviour
             {
                 Deck[i] = Discard[i];
             }
+            System.Array.Resize(ref Discard, 1);
+            Discard[0] = null;
+            discardCardNumber = 0;
+            discardCount = 1;
             InitialDrawCardtoHandsize();
         }
         else

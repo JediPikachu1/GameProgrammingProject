@@ -20,11 +20,16 @@ public class PlayerScript : MonoBehaviour
     public Text currentStrength;
     public Text blockText;
 
+    public Text gameOverText;
+
+    public Image onDeathImage;
+
     public Text currentEnergy;
     // Start is called before the first frame update
     void Start()
     {
         ResetGame();
+        onDeathImage.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,6 +43,7 @@ public class PlayerScript : MonoBehaviour
     {
         currentHealth = maximumHealth;
         playerEnergy = 3;
+        playerBlock = 0;
         StrengthText();
         BlockTextUpdate();
     }
@@ -57,11 +63,18 @@ public class PlayerScript : MonoBehaviour
         playerBlock += block;
         BlockTextUpdate();
     }
+
+    public void StartTurnSetBlock()
+    {
+        playerBlock = 0;
+        BlockTextUpdate();
+    }
     public void StartTurn()
     {
         playerEnergy = 3;
         cardFunction.isCast();
         cardFunction.DrawCardstoHandsize();
+        StartTurnSetBlock();
     }
 
     public void PlayerTakeDamage(int damage)
@@ -69,17 +82,26 @@ public class PlayerScript : MonoBehaviour
         int rolloverDamage;
         if (playerBlock == 0)
         {
-            if (playerBlock > 0)
-            {
-                rolloverDamage = damage - playerBlock;
-                playerBlock -= damage;
-                currentHealth -= rolloverDamage;
-                playerBlock = 0;
-                BlockTextUpdate();
-            }
-
             currentHealth -= damage;
             bar.UpdateHP();
+        }
+        else if (playerBlock > 0)
+        {
+            rolloverDamage = damage - playerBlock;
+            playerBlock -= damage;
+            currentHealth -= rolloverDamage;
+            BlockTextUpdate();
+            bar.UpdateHP();
+
+        }
+    }
+
+    public void PlayerDeath()
+    {
+        if (currentHealth <= 0)
+        {
+            onDeathImage.gameObject.SetActive(true);
+            gameOverText.text = "Game Over";
         }
     }
 }

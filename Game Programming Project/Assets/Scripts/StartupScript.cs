@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class StartupScript : MonoBehaviour
 {
-
-    
-    // Start is called before the first frame update
     void Awake()
     {
         Resolution[] resoultions = Screen.resolutions;

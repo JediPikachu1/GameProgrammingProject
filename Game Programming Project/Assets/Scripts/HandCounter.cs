@@ -44,7 +44,7 @@ public class HandCounter : MonoBehaviour
     }
 
 
-    void Restart()
+    public void Restart()
     {
         Counters = new Transform[5];
         Counters[0] = Hold.transform.GetChild(0);
