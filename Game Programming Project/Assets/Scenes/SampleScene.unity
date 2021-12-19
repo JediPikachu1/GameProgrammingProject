@@ -324,6 +324,7 @@ MonoBehaviour:
   playerEnergy: 0
   playerBlock: 0
   strength: 0
+  cardFunction: {fileID: 0}
   currentStrength: {fileID: 433395769}
   blockText: {fileID: 1747185376}
   currentEnergy: {fileID: 1022170686}
@@ -2963,7 +2964,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Deck: []
-  isCast: 0
+  Discard: []
+  discardCount: 0
+  firstIsCast: 0
+  secondIsCast: 0
+  thirdIsCast: 0
+  fourthIsCast: 0
+  fifthIsCast: 0
   cardEnergy: 0
   cardDamage: 0
   cardBlock: 0

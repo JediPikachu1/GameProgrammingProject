@@ -17,11 +17,15 @@ public class CardFunction : MonoBehaviour
 
     int maxHandsize = 5;
 
-    public bool isCast;
+    public bool firstIsCast, secondIsCast, thirdIsCast, fourthIsCast, fifthIsCast;
+
+    GameObject playerCard;
 
     [SerializeField] private int cardEnergy;
     [SerializeField] private int cardDamage;
     [SerializeField] private int cardBlock;
+
+    
     
 
     public PlayerScript player;
@@ -36,6 +40,7 @@ public class CardFunction : MonoBehaviour
     {
         
         DrawCardtoHandsize();
+        isCast();
         
     }
 
@@ -44,145 +49,178 @@ public class CardFunction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            cardEnergy = HandAccess[0].GetComponent<CardDisplay>().card.energyCost;
-            cardDamage = HandAccess[0].GetComponent<CardDisplay>().card.damage;
-            cardBlock = HandAccess[0].GetComponent<CardDisplay>().card.block;
-
-            if(cardEnergy > player.playerEnergy)
+            if (!firstIsCast)
             {
-                isCast = false;
-            }
-            else
-            {
-                isCast = true;
-                player.playerEnergy -= cardEnergy;
+                cardEnergy = HandAccess[0].GetComponent<CardDisplay>().card.energyCost;
+                cardDamage = HandAccess[0].GetComponent<CardDisplay>().card.damage;
+                cardBlock = HandAccess[0].GetComponent<CardDisplay>().card.block;
 
-                if (cardDamage > 0)
+                if (cardEnergy > player.playerEnergy)
                 {
-                    enemy.EnemyTakeDamage(cardDamage);
+                    firstIsCast = false;
                 }
-                else if (cardBlock > 0)
+                else
                 {
-                    player.playerBlock += cardBlock;
-                }
+                    firstIsCast = true;
+                    player.playerEnergy -= cardEnergy;
 
-                Discard[discardCount] = HandAccess[0];
-                discardCount++;
+                    if (cardDamage > 0)
+                    {
+                        enemy.EnemyTakeDamage(cardDamage);
+                    }
+                    else if (cardBlock > 0)
+                    {
+                        player.BlockIntUpdate(cardBlock);
+                    }
+                    System.Array.Resize(ref Discard, ++discardCount);
+                    Discard[discardCount - 1] = HandAccess[0];
+                    Transform remove = Hand.transform.GetChild(0);
+                    remove.gameObject.SetActive(false);
+                }
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            cardEnergy = HandAccess[1].GetComponent<CardDisplay>().card.energyCost;
-            cardDamage = HandAccess[1].GetComponent<CardDisplay>().card.damage;
-            cardBlock = HandAccess[1].GetComponent<CardDisplay>().card.block;
-
-
-            if(cardEnergy > player.playerEnergy)
+            if (!secondIsCast)
             {
-                isCast = false;
-            }
-            else
-            {
-                isCast = true;
-                player.playerEnergy -= cardEnergy;
+                cardEnergy = HandAccess[1].GetComponent<CardDisplay>().card.energyCost;
+                cardDamage = HandAccess[1].GetComponent<CardDisplay>().card.damage;
+                cardBlock = HandAccess[1].GetComponent<CardDisplay>().card.block;
 
-                if (cardDamage > 0)
+
+                if (cardEnergy > player.playerEnergy)
                 {
-                    enemy.EnemyTakeDamage(cardDamage);
+                    secondIsCast = false;
                 }
-                else if (cardBlock > 0)
+                else
                 {
-                    player.playerBlock += cardBlock;
+                    secondIsCast = true;
+                    player.playerEnergy -= cardEnergy;
+
+                    if (cardDamage > 0)
+                    {
+                        enemy.EnemyTakeDamage(cardDamage);
+                    }
+                    else if (cardBlock > 0)
+                    {
+                        player.BlockIntUpdate(cardBlock);
+                    }
+                    System.Array.Resize(ref Discard, ++discardCount);
+                    Discard[discardCount - 1] = HandAccess[1];
+                    Transform remove = Hand.transform.GetChild(2);
+                    remove.gameObject.SetActive(false);
                 }
-                Discard[discardCount] = HandAccess[1];
-                discardCount++;
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            cardEnergy = HandAccess[2].GetComponent<CardDisplay>().card.energyCost;
-            cardDamage = HandAccess[2].GetComponent<CardDisplay>().card.damage;
-            cardBlock = HandAccess[2].GetComponent<CardDisplay>().card.block;
-
-            if(cardEnergy > player.playerEnergy)
+            if (!thirdIsCast)
             {
-                isCast = false;
-            }
-            else
-            {
-                isCast = true;
-                player.playerEnergy -= cardEnergy;
+                cardEnergy = HandAccess[2].GetComponent<CardDisplay>().card.energyCost;
+                cardDamage = HandAccess[2].GetComponent<CardDisplay>().card.damage;
+                cardBlock = HandAccess[2].GetComponent<CardDisplay>().card.block;
 
-                if (cardDamage > 0)
+                if (cardEnergy > player.playerEnergy)
                 {
-                    enemy.EnemyTakeDamage(cardDamage);
+                    thirdIsCast = false;
                 }
-                else if (cardBlock > 0)
+                else
                 {
-                    player.playerBlock += cardBlock;
+                    thirdIsCast = true;
+                    player.playerEnergy -= cardEnergy;
+
+                    if (cardDamage > 0)
+                    {
+                        enemy.EnemyTakeDamage(cardDamage);
+                    }
+                    else if (cardBlock > 0)
+                    {
+                        player.BlockIntUpdate(cardBlock);
+                    }
+                    System.Array.Resize(ref Discard, ++discardCount);
+                    Discard[discardCount - 1] = HandAccess[2];
+                    Transform remove = Hand.transform.GetChild(3);
+                    remove.gameObject.SetActive(false);
                 }
-                Discard[discardCount] = HandAccess[2];
-                discardCount++;
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha4))
         {
-            cardEnergy = HandAccess[3].GetComponent<CardDisplay>().card.energyCost;
-            cardDamage = HandAccess[3].GetComponent<CardDisplay>().card.damage;
-            cardBlock = HandAccess[3].GetComponent<CardDisplay>().card.block;
-
-            if(cardEnergy > player.playerEnergy)
+            if (!fourthIsCast)
             {
-                isCast = false;
-            }
-            else
-            {
-                isCast = true;
-                player.playerEnergy -= cardEnergy;
+                cardEnergy = HandAccess[3].GetComponent<CardDisplay>().card.energyCost;
+                cardDamage = HandAccess[3].GetComponent<CardDisplay>().card.damage;
+                cardBlock = HandAccess[3].GetComponent<CardDisplay>().card.block;
 
-                if (cardDamage > 0)
+                if (cardEnergy > player.playerEnergy)
                 {
-                    enemy.EnemyTakeDamage(cardDamage);
+                    fourthIsCast = false;
                 }
-                else if (cardBlock > 0)
+                else
                 {
-                    player.playerBlock += cardBlock;
+                    fourthIsCast = true;
+                    player.playerEnergy -= cardEnergy;
+
+                    if (cardDamage > 0)
+                    {
+                        enemy.EnemyTakeDamage(cardDamage);
+                    }
+                    else if (cardBlock > 0)
+                    {
+                        player.BlockIntUpdate(cardBlock);
+                    }
+                    System.Array.Resize(ref Discard, ++discardCount);
+                    Discard[discardCount - 1] = HandAccess[3];
+                    Transform remove = Hand.transform.GetChild(4);
+                    remove.gameObject.SetActive(false);
                 }
-                Discard[discardCount] = HandAccess[3];
-                discardCount++;
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
-            cardEnergy = HandAccess[4].GetComponent<CardDisplay>().card.energyCost;
-            cardDamage = HandAccess[4].GetComponent<CardDisplay>().card.damage;
-            cardBlock = HandAccess[4].GetComponent<CardDisplay>().card.block;
-
-            if(cardEnergy > player.playerEnergy)
+            if (!fifthIsCast)
             {
-                isCast = false;
-            }
-            else
-            {
-                isCast = true;
-                player.playerEnergy -= cardEnergy;
+                cardEnergy = HandAccess[4].GetComponent<CardDisplay>().card.energyCost;
+                cardDamage = HandAccess[4].GetComponent<CardDisplay>().card.damage;
+                cardBlock = HandAccess[4].GetComponent<CardDisplay>().card.block;
 
-                if (cardDamage > 0)
+                if (cardEnergy > player.playerEnergy)
                 {
-                    enemy.EnemyTakeDamage(cardDamage);
+                    fifthIsCast = false;
                 }
-                else if (cardBlock > 0)
+                else
                 {
-                    player.playerBlock += cardBlock;
+                    fifthIsCast = true;
+                    player.playerEnergy -= cardEnergy;
+
+                    if (cardDamage > 0)
+                    {
+                        enemy.EnemyTakeDamage(cardDamage);
+                    }
+                    else if (cardBlock > 0)
+                    {
+                        player.BlockIntUpdate(cardBlock);
+                    }
+                    System.Array.Resize(ref Discard, ++discardCount);
+                    Discard[discardCount - 1] = HandAccess[4];
+                    Transform remove = Hand.transform.GetChild(5);
+                    remove.gameObject.SetActive(false);
                 }
-                Discard[discardCount] = HandAccess[4];
-                discardCount++;
             }
         }
+    }
+
+    public void isCast()
+    {
+        firstIsCast = false;
+        secondIsCast = false;
+        thirdIsCast = false;
+        fourthIsCast = false;
+        fifthIsCast = false;
     }
 
     void DeckInstantiate()
@@ -196,7 +234,8 @@ public class CardFunction : MonoBehaviour
         for (int i = 5; i < 8; i++)
             Deck[i] = deckCards[2];
 
-        discardCount = 0;
+        discardCount = 1;
+        Discard = new GameObject[discardCount];
         
     }
     public void DrawCardtoHandsize()
@@ -204,7 +243,7 @@ public class CardFunction : MonoBehaviour
         for(int i = 0; i < maxHandsize; i++)
         {
             int cardIndex = Random.Range(0, Deck.Length - 1);
-            GameObject playerCard = Instantiate(Deck[cardIndex], new Vector3(0,0,0), Quaternion.identity);
+            playerCard = Instantiate(Deck[cardIndex], new Vector3(0,0,0), Quaternion.identity);
             HandAccess[i] = Deck[cardIndex];
             playerCard.transform.SetParent(Hand.transform, false);
         }

@@ -84,6 +84,7 @@ public class EnemyHealthAi : MonoBehaviour
     {
         int gainBlock = Random.Range(13, 26);
         enemyBlock += gainBlock;
+        EnemyBlockUpdate();
     }
 
     public void EnemyAttack()
@@ -103,9 +104,9 @@ public class EnemyHealthAi : MonoBehaviour
     public void EnemyTakeDamage(int damage)
     {
         int rolloverDamage;
-        if (enemyBlock > 0)
+        if (enemyBlock == 0)
         {
-            if (enemyBlock > damage)
+            if (enemyBlock > 0)
             {
                 rolloverDamage = damage - enemyBlock;
                 enemyBlock -= damage;
@@ -115,6 +116,8 @@ public class EnemyHealthAi : MonoBehaviour
             }
 
             enemyCurrentHealth -= damage;
+            UpdateSlider();
+            
         }
     }
 

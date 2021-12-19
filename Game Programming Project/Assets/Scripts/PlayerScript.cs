@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     public int playerBlock;
 
     public int strength;
+
+    public CardFunction cardFunction;
     public Text currentStrength;
     public Text blockText;
 
@@ -47,17 +49,24 @@ public class PlayerScript : MonoBehaviour
     {
         blockText.text = playerBlock.ToString();
     }
+
+    public void BlockIntUpdate(int block)
+    {
+        playerBlock += block;
+        BlockTextUpdate();
+    }
     public void StartTurn()
     {
         playerEnergy = 3;
+        cardFunction.isCast();
     }
 
     public void PlayerTakeDamage(int damage)
     {
         int rolloverDamage;
-        if (playerBlock > 0)
+        if (playerBlock == 0)
         {
-            if (damage > playerBlock)
+            if (damage > 0)
             {
                 rolloverDamage = damage - playerBlock;
                 playerBlock -= damage;
