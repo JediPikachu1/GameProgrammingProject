@@ -27,6 +27,8 @@ public class CardFunction : MonoBehaviour
     [SerializeField] private int cardDamage;
     [SerializeField] private int cardBlock;
 
+    [SerializeField] private int cardStrength;
+
     int discardCardNumber;
 
     public ScriptEndTurn end;
@@ -57,6 +59,7 @@ public class CardFunction : MonoBehaviour
                 cardEnergy = HandAccess[0].GetComponent<CardDisplay>().card.energyCost;
                 cardDamage = HandAccess[0].GetComponent<CardDisplay>().card.damage;
                 cardBlock = HandAccess[0].GetComponent<CardDisplay>().card.block;
+                cardStrength = HandAccess[0].GetComponent<CardDisplay>().card.strength;
 
                 if (cardEnergy > player.playerEnergy)
                 {
@@ -75,6 +78,11 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
+                    else if (cardStrength > 0)
+                    {
+                        player.strength += cardStrength;
+                        player.StrengthText();
+                    }
                     System.Array.Resize(ref Discard, discardCount++);
                     Discard[discardCardNumber++] = HandAccess[0];
                     Transform remove = Hand.transform.GetChild(0);
@@ -92,7 +100,7 @@ public class CardFunction : MonoBehaviour
                 cardEnergy = HandAccess[1].GetComponent<CardDisplay>().card.energyCost;
                 cardDamage = HandAccess[1].GetComponent<CardDisplay>().card.damage;
                 cardBlock = HandAccess[1].GetComponent<CardDisplay>().card.block;
-
+                cardStrength = HandAccess[1].GetComponent<CardDisplay>().card.strength;
 
                 if (cardEnergy > player.playerEnergy)
                 {
@@ -111,6 +119,11 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
+                    else if (cardStrength > 0)
+                    {
+                        player.strength += cardStrength;
+                        player.StrengthText();
+                    }
                     System.Array.Resize(ref Discard, discardCount++);
                     Discard[discardCardNumber++] = HandAccess[1];
                     Transform remove = Hand.transform.GetChild(1);
@@ -128,6 +141,7 @@ public class CardFunction : MonoBehaviour
                 cardEnergy = HandAccess[2].GetComponent<CardDisplay>().card.energyCost;
                 cardDamage = HandAccess[2].GetComponent<CardDisplay>().card.damage;
                 cardBlock = HandAccess[2].GetComponent<CardDisplay>().card.block;
+                cardStrength = HandAccess[2].GetComponent<CardDisplay>().card.strength;
 
                 if (cardEnergy > player.playerEnergy)
                 {
@@ -146,6 +160,11 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
+                    else if (cardStrength > 0)
+                    {
+                        player.strength += cardStrength;
+                        player.StrengthText();
+                    }
                     System.Array.Resize(ref Discard, discardCount++);
                     Discard[discardCardNumber++] = HandAccess[2];
                     Transform remove = Hand.transform.GetChild(2);
@@ -163,6 +182,7 @@ public class CardFunction : MonoBehaviour
                 cardEnergy = HandAccess[3].GetComponent<CardDisplay>().card.energyCost;
                 cardDamage = HandAccess[3].GetComponent<CardDisplay>().card.damage;
                 cardBlock = HandAccess[3].GetComponent<CardDisplay>().card.block;
+                cardStrength = HandAccess[3].GetComponent<CardDisplay>().card.strength;
 
                 if (cardEnergy > player.playerEnergy)
                 {
@@ -181,6 +201,11 @@ public class CardFunction : MonoBehaviour
                     {
                         player.BlockIntUpdate(cardBlock);
                     }
+                    else if (cardStrength > 0)
+                    {
+                        player.strength += cardStrength;
+                        player.StrengthText();
+                    }
                     System.Array.Resize(ref Discard, discardCount++);
                     Discard[discardCardNumber++] = HandAccess[3];
                     Transform remove = Hand.transform.GetChild(3);
@@ -198,6 +223,7 @@ public class CardFunction : MonoBehaviour
                 cardEnergy = HandAccess[4].GetComponent<CardDisplay>().card.energyCost;
                 cardDamage = HandAccess[4].GetComponent<CardDisplay>().card.damage;
                 cardBlock = HandAccess[4].GetComponent<CardDisplay>().card.block;
+                cardStrength = HandAccess[4].GetComponent<CardDisplay>().card.strength;
 
                 if (cardEnergy > player.playerEnergy)
                 {
@@ -215,6 +241,11 @@ public class CardFunction : MonoBehaviour
                     else if (cardBlock > 0)
                     {
                         player.BlockIntUpdate(cardBlock);
+                    }
+                    else if (cardStrength > 0)
+                    {
+                        player.strength += cardStrength;
+                        player.StrengthText();
                     }
                     System.Array.Resize(ref Discard, discardCount++);
                     Discard[discardCardNumber++] = HandAccess[4];

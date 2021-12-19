@@ -14,9 +14,7 @@ public class CardDisplay : MonoBehaviour
     public Image art;
 
     public Text energyText;
-    public Text damageText;
-    public Text blockText;
-    // Start is called before the first frame update
+    
     void Start()
     {
         nameText.text = card.name;
@@ -28,7 +26,10 @@ public class CardDisplay : MonoBehaviour
         {
             descriptionText.text = "You gain: " + card.block.ToString() + " block";
         }
-        
+        else if (card.strength > 0)
+        {
+            descriptionText.text = "You gain: " + card.strength.ToString() + " strength";
+        }
 
         art.sprite = card.artwork;
 
