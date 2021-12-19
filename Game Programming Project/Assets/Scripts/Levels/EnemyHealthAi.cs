@@ -30,7 +30,7 @@ public class EnemyHealthAi : MonoBehaviour
     #region EnemySlider functions
     void EnemyReset()
     {
-        enemyMaxHealth = 150;
+        enemyMaxHealth = 200;
         enemyCurrentHealth = enemyMaxHealth;
         enemySlider.maxValue = enemyMaxHealth;
         enemySlider.minValue = 0;
