@@ -34,7 +34,7 @@ public class ScriptEndTurn : MonoBehaviour
             enemy.EnemyDebuff();
         }
 
-        //player.StartTurn();
+        player.StartTurn();
         cf.EndTurnDiscard();
     }
 }

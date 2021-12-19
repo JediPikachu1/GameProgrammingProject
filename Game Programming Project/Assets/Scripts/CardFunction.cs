@@ -289,6 +289,11 @@ public class CardFunction : MonoBehaviour
                 Discard[discardCount - 1] = HandAccess[i];
             }
         }
+
+        for (int i = 0; i < maxHandsize; i++)
+        {
+            Destroy(Hand.transform.GetChild(i));
+        }
     }
 
     public void DrawCardstoHandsize()
@@ -298,8 +303,13 @@ public class CardFunction : MonoBehaviour
             Deck = new GameObject[10];
             for (int i = 0; i < Discard.Length; ++i)
             {
-
+                Deck[i] = Discard[i];
             }
+            InitialDrawCardtoHandsize();
+        }
+        else
+        {
+            InitialDrawCardtoHandsize();
         }
 
     }
