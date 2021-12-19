@@ -13,6 +13,8 @@ public class CardFunction : MonoBehaviour
     public GameObject[] Deck;
     public GameObject[] Discard;
 
+    public GameObject HandCounter;
+
     public int discardCount;
 
     int maxHandsize = 5;
@@ -25,9 +27,6 @@ public class CardFunction : MonoBehaviour
     [SerializeField] private int cardDamage;
     [SerializeField] private int cardBlock;
 
-    
-    
-
     public PlayerScript player;
     public EnemyHealthAi enemy;
 
@@ -39,7 +38,7 @@ public class CardFunction : MonoBehaviour
     void Start()
     {
         
-        DrawCardtoHandsize();
+        InitialDrawCardtoHandsize();
         isCast();
         
     }
@@ -76,6 +75,8 @@ public class CardFunction : MonoBehaviour
                     Discard[discardCount - 1] = HandAccess[0];
                     Transform remove = Hand.transform.GetChild(0);
                     remove.gameObject.SetActive(false);
+                    remove = HandCounter.transform.GetChild(0);
+                    remove.gameObject.SetActive(false);
                 }
             }
         }
@@ -108,7 +109,9 @@ public class CardFunction : MonoBehaviour
                     }
                     System.Array.Resize(ref Discard, ++discardCount);
                     Discard[discardCount - 1] = HandAccess[1];
-                    Transform remove = Hand.transform.GetChild(2);
+                    Transform remove = Hand.transform.GetChild(1);
+                    remove.gameObject.SetActive(false);
+                    remove = HandCounter.transform.GetChild(1);
                     remove.gameObject.SetActive(false);
                 }
             }
@@ -141,7 +144,9 @@ public class CardFunction : MonoBehaviour
                     }
                     System.Array.Resize(ref Discard, ++discardCount);
                     Discard[discardCount - 1] = HandAccess[2];
-                    Transform remove = Hand.transform.GetChild(3);
+                    Transform remove = Hand.transform.GetChild(2);
+                    remove.gameObject.SetActive(false);
+                    remove = HandCounter.transform.GetChild(2);
                     remove.gameObject.SetActive(false);
                 }
             }
@@ -174,7 +179,9 @@ public class CardFunction : MonoBehaviour
                     }
                     System.Array.Resize(ref Discard, ++discardCount);
                     Discard[discardCount - 1] = HandAccess[3];
-                    Transform remove = Hand.transform.GetChild(4);
+                    Transform remove = Hand.transform.GetChild(3);
+                    remove.gameObject.SetActive(false);
+                    remove = Hand.transform.GetChild(3);
                     remove.gameObject.SetActive(false);
                 }
             }
@@ -207,7 +214,9 @@ public class CardFunction : MonoBehaviour
                     }
                     System.Array.Resize(ref Discard, ++discardCount);
                     Discard[discardCount - 1] = HandAccess[4];
-                    Transform remove = Hand.transform.GetChild(5);
+                    Transform remove = Hand.transform.GetChild(4);
+                    remove.gameObject.SetActive(false);
+                    remove = HandCounter.transform.GetChild(4);
                     remove.gameObject.SetActive(false);
                 }
             }
@@ -225,7 +234,9 @@ public class CardFunction : MonoBehaviour
 
     void DeckInstantiate()
     {
-        Deck = new GameObject[8];
+        Deck = new GameObject[10];
+        
+        /*
         for (int i = 0; i < 4; i++)
             Deck[i] = deckCards[0];
 
@@ -233,19 +244,30 @@ public class CardFunction : MonoBehaviour
 
         for (int i = 5; i < 8; i++)
             Deck[i] = deckCards[2];
+        */
+        
 
+        for (int i = 0; i < Deck.Length; ++i)
+        {
+            int cardIndex = Random.Range(0, deckCards.Length);
+            Deck[i] = deckCards[cardIndex];
+        }
+        
+        
         discardCount = 1;
         Discard = new GameObject[discardCount];
         
     }
-    public void DrawCardtoHandsize()
+    public void InitialDrawCardtoHandsize()
     {
         for(int i = 0; i < maxHandsize; i++)
         {
-            int cardIndex = Random.Range(0, Deck.Length - 1);
-            playerCard = Instantiate(Deck[cardIndex], new Vector3(0,0,0), Quaternion.identity);
-            HandAccess[i] = Deck[cardIndex];
+            
+            
+            playerCard = Instantiate(Deck[Deck.Length -1], new Vector3(0,0,0), Quaternion.identity);
+            HandAccess[i] = Deck[Deck.Length - 1];
             playerCard.transform.SetParent(Hand.transform, false);
+            System.Array.Resize(ref Deck, Deck.Length -1);
         }
     }
 }
