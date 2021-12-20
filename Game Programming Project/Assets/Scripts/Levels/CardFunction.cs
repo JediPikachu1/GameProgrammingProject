@@ -8,6 +8,7 @@ public class CardFunction : MonoBehaviour
     
     public GameObject[] deckCards;
     public GameObject Hand;
+    public GameObject DeckTracker;
     
     [SerializeField] private GameObject[] HandAccess;
     public GameObject[] Deck;
@@ -20,6 +21,8 @@ public class CardFunction : MonoBehaviour
     int maxHandsize = 5;
 
     public bool firstIsCast, secondIsCast, thirdIsCast, fourthIsCast, fifthIsCast;
+
+    public bool DeckShown = false;
 
     GameObject playerCard;
 
@@ -261,6 +264,11 @@ public class CardFunction : MonoBehaviour
         {
             end.EndTurn();
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            ShowDeck();
+        }
     }
 
     public void isCast()
@@ -345,6 +353,29 @@ public class CardFunction : MonoBehaviour
         else
         {
             InitialDrawCardtoHandsize();
+        }
+
+    }
+
+    public void ShowDeck()
+    {
+        if (!DeckShown)
+        {
+
+            for (int i = 0; i < Deck.Length; i++)
+            {
+                playerCard = Instantiate(Deck[i], new Vector3(0,0,0), Quaternion.identity);
+                playerCard.transform.SetParent(DeckTracker.transform, false);
+            }
+            DeckShown = true;
+        }
+        else if (DeckShown)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Destroy(DeckTracker.transform.GetChild(i).gameObject);
+            }
+            DeckShown = false;
         }
 
     }
