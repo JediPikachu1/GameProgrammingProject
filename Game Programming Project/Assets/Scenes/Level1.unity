@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 234581354}
   - component: {fileID: 234581353}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Deck Shown Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3835,6 +3835,7 @@ MonoBehaviour:
   end: {fileID: 65250496}
   player: {fileID: 282233923}
   enemy: {fileID: 322566193}
+  deckShownText: {fileID: 234581353}
 --- !u!4 &2093214358
 Transform:
   m_ObjectHideFlags: 0

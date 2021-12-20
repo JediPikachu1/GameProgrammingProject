@@ -39,6 +39,8 @@ public class CardFunction : MonoBehaviour
     public PlayerScript player;
     public EnemyHealthAi enemy;
 
+    public Text deckShownText;
+
     void Awake()
     {
         DeckInstantiate();
@@ -367,6 +369,7 @@ public class CardFunction : MonoBehaviour
                 playerCard = Instantiate(Deck[i], new Vector3(0,0,0), Quaternion.identity);
                 playerCard.transform.SetParent(DeckTracker.transform, false);
             }
+            deckShownText.text = "Deck: Shown";
             DeckShown = true;
         }
         else if (DeckShown)
@@ -376,6 +379,7 @@ public class CardFunction : MonoBehaviour
                 Destroy(DeckTracker.transform.GetChild(i).gameObject);
             }
             DeckShown = false;
+            deckShownText.text = "Deck";
         }
 
     }
