@@ -100,8 +100,6 @@ public class EnemyHealthAi : MonoBehaviour
         int rolloverDamage;
         if (enemyBlock == 0)
         {
-            
-
             enemyCurrentHealth -= damage;
             UpdateSlider();
             
@@ -112,6 +110,7 @@ public class EnemyHealthAi : MonoBehaviour
             enemyBlock -= damage;
             enemyCurrentHealth -= rolloverDamage;
             enemyBlock = 0;
+            UpdateSlider();
             EnemyBlockUpdate();
         }
     }

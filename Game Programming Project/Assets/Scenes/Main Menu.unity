@@ -649,7 +649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: One Deck to Rule Them All
+  m_Text: The Deck of Madness
 --- !u!222 &1105076614
 CanvasRenderer:
   m_ObjectHideFlags: 0
